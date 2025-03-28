@@ -116,5 +116,7 @@ color:rgb(85, 31, 12);
 html, body {
   max-width: 100%;
   width: auto;
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  
 }
