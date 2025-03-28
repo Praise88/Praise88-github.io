@@ -1,0 +1,122 @@
+
+.square-box{
+  width: 250px;
+  height: 300px;
+  background-image: url("IMG_20250131_174652.jpg");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  border-style: solid;
+  border-color:lightgray;
+  position: relative;
+  top: 360px;
+  left:1000px
+}
+
+
+
+  
+body{
+  background-image: url("https://img.freepik.com/free-vector/engraving-hand-drawn-floral-background_23-2149013659.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+
+}
+
+.names{
+  margin-top: -396px;
+  position: relative;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 30px;
+  text-decoration: underline;
+  font-weight: 700;
+  color:rgb(145, 71, 46);
+  text-decoration-style: solid;
+  letter-spacing: 3px;
+  left: 440px;
+}
+
+.highlight{
+  font-weight: 720;
+  color:rgb(85, 31, 12);
+  font-size: 50px;
+
+}
+
+h1{
+  font-size: 59px;
+  color:rgb(85, 31, 12);
+  position: relative;
+  top: -350px;
+  left: 500px;
+}
+
+.intro{
+  font-size: 30px;
+}
+
+h4{
+  position: relative;
+  top: -15px;
+  color:rgb(85, 31, 12);
+  left: 280px;
+}
+
+h2{
+  position: relative;
+  left: 400px;
+  text-decoration-line: underline;
+  color:rgb(145, 71, 46);
+  font-size: 30px;
+}
+
+h5{
+position: relative;
+left: 350px;  
+top: -18px;
+font-weight: bolder;
+font-size: 15px;
+color:rgb(85, 31, 12);
+}
+
+
+
+#phone{
+  position: relative;
+  left: 350px;
+  top: -65px;
+  color:rgb(85, 31, 12);
+}
+#email{
+  position: relative;
+  left: 350px;
+  top: -40px;
+  color:rgb(85, 31, 12);
+}
+#ig{
+  position: relative;
+  left: 350px;
+  top: -88px;
+  color:rgb(85, 31, 12);
+}
+#linkd{
+  position: relative;
+  left: 350px;
+  top: -110px;
+  color:rgb(85, 31, 12);
+}
+.contact-info{
+  position: relative;
+  right: 290px;
+  top: 20px;
+}
+
+html, .container {
+  max-width: 1100px;
+  height: 1000px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
