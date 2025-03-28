@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   border-style: solid;
   border-color:lightgray;
-  position: relative;
+  position: absolute;
   top: 600px;
   left: 70%;
   transform: translateX(-70%);
