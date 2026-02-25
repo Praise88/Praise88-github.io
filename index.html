@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Happy Birthday Eddie 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eddie 💙</title>
 
 <style>
 * {
@@ -13,174 +13,200 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  overflow: hidden;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #dff2ff, #a8d8ff);
+  overflow-x: hidden;
+  color: #0a2a43;
 }
 
-/* center layout */
+/* LOGO */
+.logo {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* SECTIONS */
 section {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
   display: none;
-  height: 100vh;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   text-align: center;
-  padding: 20px;
 }
 
 section.active {
-  display: flex;
+  display: block;
 }
 
 button {
-  margin-top: 20px;
-  padding: 12px 25px;
+  padding: 14px 28px;
   border-radius: 30px;
   border: none;
-  cursor: pointer;
-  font-size: 16px;
   background: #ffffff;
-  color: #203a43;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  color: #0a2a43;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  margin-top: 25px;
 }
 
-/* images */
+/* HEARTS */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 18px;
+  color: rgba(255, 120, 180, 0.6);
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* IMAGES */
 .memory-img {
   width: 260px;
   height: 260px;
+  border-radius: 25px;
   object-fit: cover;
-  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,140,255,0.35);
   margin-bottom: 15px;
-  box-shadow: 0 0 25px rgba(135,206,235,0.6);
-  animation: fadeIn 1s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.caption {
-  font-size: 18px;
-  max-width: 300px;
-}
-
-/* password */
-input {
-  padding: 12px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  text-align: center;
-  font-size: 16px;
-}
-
-/* floating dots */
-.dot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: rgba(255,255,255,0.4);
-  border-radius: 50%;
-  animation: float 10s linear infinite;
-}
-
-@keyframes float {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-10vh); }
+/* FINAL TEXT */
+.final-text {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 30px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- floating dots -->
+<div class="logo">E 💙</div>
+
+<!-- HEARTS SCRIPT -->
 <script>
-for (let i = 0; i < 30; i++) {
-  const dot = document.createElement("div");
-  dot.className = "dot";
-  dot.style.left = Math.random() * 100 + "vw";
-  dot.style.animationDuration = (6 + Math.random() * 8) + "s";
-  document.body.appendChild(dot);
-}
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 12000);
+}, 400);
 </script>
 
 <!-- PAGE 1 -->
-<section id="page1" class="active">
+<section id="p1" class="active">
   <h1>Happy Birthday, Eddie 💙</h1>
-  <p>Calm. Special. Exactly you.</p>
-  <button onclick="nextPage(2)">Start Your Birthday Mission 🎮</button>
+  <p>Calm. Loyal. Built for big moments.</p>
+  <button onclick="go(2)">Start 🎮</button>
 </section>
 
-<!-- PAGE 2: MEMORY -->
-<section id="page2">
-  <img id="memoryImg" class="memory-img" src="img1.jpg" />
-  <div id="memoryText" class="caption">This smile? Elite.</div>
-  <button onclick="nextMemory()">Next Memory 💙</button>
+<!-- PAGE 2: PHOTOS -->
+<section id="p2">
+  <img id="img" class="memory-img" src="img1.jpg">
+  <p id="cap">This smile? Dangerous.</p>
+  <button onclick="nextPic()">Next 💙</button>
 </section>
 
-<!-- PAGE 3: PASSWORD -->
-<section id="page3">
-  <h2>Quick Check 🔐</h2>
-  <p>What nickname do you call me when you’re joking?</p>
-  <input id="password" placeholder="Type here..." />
-  <button onclick="checkPassword()">Unlock</button>
-  <p id="error" style="color:#ffb3b3;"></p>
+<!-- PAGE 3: MAN CITY -->
+<section id="p3">
+  <h2>Quick Question ⚽</h2>
+  <p>Press if you’re loyal 💙</p>
+  <button onclick="go(4)">I Know Ball</button>
 </section>
 
-<!-- PAGE 4: FINAL -->
-<section id="page4">
-  <h1>You unlocked it 💙</h1>
-  <p>
-    Guess that makes you my Minato.<br><br>
-    Calm. Strong. Always showing up when it matters.<br><br>
-    I’m grateful I get to celebrate you today.
-  </p>
+<!-- PAGE 4: NARUTO MOMENT -->
+<section id="p4">
+  <h2>Just one soft moment 🍥</h2>
+  <p>For my Minato energy.</p>
+
+  <div style="margin-top:20px;">
+    <iframe width="320" height="180"
+      src="https://www.youtube.com/embed/9Z3eGJpYH4I"
+      title="Naruto"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <button onclick="go(5)">Continue 💙</button>
+</section>
+
+<!-- PAGE 5: FINAL -->
+<section id="p5">
+  <img src="img4.jpg" class="memory-img">
+  <div class="final-text">
+    I love you.<br>
+    Filthy.
+  </div>
 </section>
 
 <script>
-let currentPage = 1;
+let current = 1;
 
-function nextPage(num) {
-  document.getElementById("page" + currentPage).classList.remove("active");
-  document.getElementById("page" + num).classList.add("active");
-  currentPage = num;
+function go(n) {
+  document.getElementById("p" + current).classList.remove("active");
+  document.getElementById("p" + n).classList.add("active");
+  current = n;
 }
 
-const memories = [
-  { img: "img1.jpg", text: "This smile? Elite." },
-  { img: "img2.jpg", text: "My calm in every storm." },
-  { img: "img3.jpg", text: "Main character energy." },
-  { img: "img4.jpg", text: "Always my favorite view." }
+const pics = [
+  { img: "img1.jpg", cap: "This smile? Dangerous." },
+  { img: "img2.jpg", cap: "My calm in every storm." },
+  { img: "img3.jpg", cap: "Champions League mentality." }
 ];
 
-let memoryIndex = 0;
-
-function nextMemory() {
-  memoryIndex++;
-  if (memoryIndex < memories.length) {
-    document.getElementById("memoryImg").src = memories[memoryIndex].img;
-    document.getElementById("memoryText").innerText = memories[memoryIndex].text;
+let i = 0;
+function nextPic() {
+  i++;
+  if (i < pics.length) {
+    document.getElementById("img").src = pics[i].img;
+    document.getElementById("cap").innerText = pics[i].cap;
   } else {
-    nextPage(3);
-  }
-}
-
-function checkPassword() {
-  const pass = document.getElementById("password").value.toLowerCase();
-  if (pass === "kushina") {
-    nextPage(4);
-  } else {
-    document.getElementById("error").innerText = "Try again 👀";
+    go(3);
   }
 }
 </script>
 
 </body>
 </html>
+
+
+
+
+  
+
+  
+
+
+
+  
+
+
+
+
                
                         
                         
