@@ -3,247 +3,223 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Eddie Turns 21 💙</title>
+<title>I Love You Filthy 💙</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-  margin: 0;
-  background: linear-gradient(180deg, #dff2ff, #a8d8ff);
-  color: #0a2a43;
-  overflow-x: hidden;
+body{
+  height:100vh;
+  background: radial-gradient(circle at top, #0a2a66, #000814);
+  overflow:hidden;
+  color:white;
 }
 
-/* ---------- LOGO (MAN CITY INSPIRED BADGE) ---------- */
-.logo {
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #9ad1ff, #1e90ff);
-  border: 4px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 1px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  animation: pulse 3s infinite ease-in-out;
-  z-index: 10;
+/* PASSWORD SCREEN */
+#lock{
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle, #0b3c91, #000814);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
 }
 
-@keyframes pulse {
-  0% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.08); }
-  100% { transform: translateX(-50%) scale(1); }
+.lock-box{
+  background: rgba(0,0,0,0.6);
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(0,162,255,.5);
 }
 
-/* ---------- SECTIONS ---------- */
-section {
-  min-height: 100vh;
-  padding: 130px 20px 60px;
-  text-align: center;
-  display: none;
+.lock-box h2{
+  margin-bottom:15px;
 }
 
-section.active {
-  display: block;
+.lock-box input{
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  width:200px;
+  text-align:center;
 }
 
-button {
-  padding: 14px 30px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  color: #0a2a43;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  margin-top: 25px;
+.lock-box button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#00aaff;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* ---------- HEARTS ---------- */
-.heart {
-  position: fixed;
-  font-size: 18px;
-  animation: floatUp linear forwards;
-  pointer-events: none;
+/* MAIN CONTENT */
+#content{
+  display:none;
+  height:100%;
+  text-align:center;
+  padding-top:60px;
 }
 
-@keyframes floatUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-120vh);
-    opacity: 0;
-  }
+/* LOGO */
+.logo{
+  font-size:2.2rem;
+  font-weight:800;
+  animation: pulse 2s infinite;
 }
 
-/* ---------- IMAGES ---------- */
-.memory-img {
-  width: 270px;
-  height: 270px;
-  border-radius: 30px;
-  object-fit: cover;
-  box-shadow: 0 0 35px rgba(0,140,255,0.4);
-  margin-bottom: 15px;
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 
-/* ---------- FINAL ---------- */
-.final-text {
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 25px;
+/* HEARTS */
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  font-size:20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh); opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(-10vh); opacity:0}
+}
+
+/* MAN CITY BADGE */
+.badge{
+  width:120px;
+  margin:25px auto;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* TEXT */
+.message{
+  max-width:500px;
+  margin:20px auto;
+  font-size:1.1rem;
+  line-height:1.6;
+}
+
+/* VIDEO */
+.video-box{
+  margin-top:25px;
+}
+
+video{
+  width:280px;
+  border-radius:20px;
+  box-shadow:0 0 20px rgba(255,255,255,.3);
+}
+
+/* TAP FUN */
+.tap-note{
+  margin-top:15px;
+  opacity:.7;
+  font-size:.9rem;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
-<div class="logo">E 💙</div>
+<!-- PASSWORD -->
+<div id="lock">
+  <div class="lock-box">
+    <h2>Minato to my ___ 💕</h2>
+    <input id="pass" placeholder="type the name"/>
+    <br/>
+    <button onclick="unlock()">Unlock</button>
+  </div>
+</div>
 
-<!-- BACKGROUND MUSIC -->
+<!-- MUSIC -->
 <audio id="bgMusic" loop>
-  <!-- Replace with your MP3 -->
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="YOUR-MUSIC.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PAGE 1 -->
-<section id="p1" class="active">
-  <h1>Happy 21st Birthday, Eddie 💙</h1>
-  <p>Big year. Big moments. Same calm energy.</p>
-  <button onclick="startExperience()">Start 🎉</button>
-</section>
+<!-- MAIN -->
+<div id="content">
+  <div class="logo">I Love You Filthy 💙</div>
 
-  <!-- PASSWORD PAGE -->
-<section id="p1b">
-  <h2>Quick question first 🍥</h2>
-  <p>Minato to my&nbsp;_____ ?</p>
+  <img class="badge" src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"/>
 
-  <input 
-    id="passwordInput"
-    type="text"
-    placeholder="type here"
-    style="
-      padding: 12px 20px;
-      border-radius: 25px;
-      border: none;
-      font-size: 16px;
-      text-align: center;
-      margin-top: 15px;
-    "
-  />
-
-  <br>
-  <button onclick="checkPassword()">Unlock 💙</button>
-
-  <p id="error" style="color:#c0392b; margin-top:15px;"></p>
-</section>
-
-<!-- PAGE 2 -->
-<section id="p2">
-  <img id="img" class="memory-img" src="img1.jpg">
-  <p id="cap">This smile? Dangerous.</p>
-  <button onclick="nextPic()">Next 💙</button>
-</section>
-
-<!-- PAGE 3 -->
-<section id="p3">
-  <h2>Quick check ⚽</h2>
-  <p>Press if you’re loyal 💙</p>
-  <button onclick="go(4)">Always.</button>
-</section>
-
-<!-- PAGE 4 -->
-<section id="p4">
-  <h2>One soft Naruto moment 🍥</h2>
-  <p>Calm Minato energy.</p>
-
-  <iframe width="320" height="180"
-    src="https://www.youtube.com/embed/9Z3eGJpYH4I"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-
-  <button onclick="go(5)">Continue 💙</button>
-</section>
-
-<!-- PAGE 5 -->
-<section id="p5">
-  <img src="img4.jpg" class="memory-img">
-  <div class="final-text">
-    I love you.<br>
-    Filthy.
+  <div class="message">
+    Happy 21st 🥂💫  
+    Another year older, another year finer, another year of being
+    absolutely obsessed with you.  
+    Champions League energy only 😌⚽  
+    Manchester City mentality: always winning — just like us.
   </div>
-</section>
+
+  <div class="video-box">
+    <!-- Replace with any Naruto clip you want -->
+    <video controls>
+      <source src="YOUR-NARUTO-CLIP.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="tap-note">tap anywhere for more hearts 💕</div>
+</div>
 
 <script>
-let current = 1;
-
-/* ---------- PAGE NAV ---------- */
-function go(n) {
-  document.getElementById("p" + current).classList.remove("active");
-  document.getElementById("p" + n).classList.add("active");
-  current = n;
-}
-
-/* ---------- MUSIC START ---------- */
-function startExperience() {
-  document.getElementById("bgMusic").play();
-  go(2);
-}
-
-/* ---------- MEMORIES ---------- */
-const pics = [
-  { img: "img1.jpg", cap: "This smile? Dangerous." },
-  { img: "img2.jpg", cap: "My calm in every storm." },
-  { img: "img3.jpg", cap: "Champions League mentality." }
-];
-
-let i = 0;
-function nextPic() {
-  i++;
-  if (i < pics.length) {
-    img.src = pics[i].img;
-    cap.innerText = pics[i].cap;
-  } else {
-    go(3);
+/* PASSWORD */
+function unlock(){
+  const val = document.getElementById("pass").value.toLowerCase();
+  if(val === "kushina"){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("content").style.display="block";
+    document.getElementById("bgMusic").play();
+    startHearts();
+  }else{
+    alert("wrong 😭 try again");
   }
 }
 
-/* ---------- TAP = MORE HEARTS ---------- */
-document.addEventListener("click", (e) => {
-  for (let j = 0; j < 6; j++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = Math.random() > 0.5 ? "💖" : "💙";
-    heart.style.left = e.clientX + (Math.random()*40 - 20) + "px";
-    heart.style.top = e.clientY + "px";
-    heart.style.animationDuration = (4 + Math.random()*3) + "s";
-    document.body.appendChild(heart);
+/* HEARTS */
+function createHeart(x=null,y=null){
+  const heart = document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left = (x ?? Math.random()*window.innerWidth) + "px";
+  heart.style.top = (y ?? window.innerHeight) + "px";
+  heart.style.fontSize = (15 + Math.random()*20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
 
-    setTimeout(() => heart.remove(), 7000);
+function startHearts(){
+  setInterval(()=>createHeart(),400);
+}
+
+document.addEventListener("click",e=>{
+  for(let i=0;i<8;i++){
+    createHeart(e.clientX,e.clientY);
   }
 });
 </script>
 
 </body>
 </html>
-  
- 
-  
 
+  
+  
   
 
 
