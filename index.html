@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Eddie 💙</title>
+<title>Eddie Turns 21 💙</title>
 
 <style>
 * {
@@ -13,33 +13,45 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
   background: linear-gradient(180deg, #dff2ff, #a8d8ff);
-  overflow-x: hidden;
   color: #0a2a43;
+  overflow-x: hidden;
 }
 
-/* LOGO */
+/* ---------- LOGO (MAN CITY INSPIRED BADGE) ---------- */
 .logo {
   position: fixed;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  background: white;
-  padding: 10px 22px;
-  border-radius: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #9ad1ff, #1e90ff);
+  border: 4px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
+  color: white;
   letter-spacing: 1px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  animation: pulse 3s infinite ease-in-out;
   z-index: 10;
 }
 
-/* SECTIONS */
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.08); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* ---------- SECTIONS ---------- */
 section {
   min-height: 100vh;
-  padding: 120px 20px 60px;
-  display: none;
+  padding: 130px 20px 60px;
   text-align: center;
+  display: none;
 }
 
 section.active {
@@ -47,24 +59,22 @@ section.active {
 }
 
 button {
-  padding: 14px 28px;
+  padding: 14px 30px;
   border-radius: 30px;
   border: none;
-  background: #ffffff;
+  background: white;
   color: #0a2a43;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   margin-top: 25px;
 }
 
-/* HEARTS */
+/* ---------- HEARTS ---------- */
 .heart {
   position: fixed;
-  bottom: -20px;
   font-size: 18px;
-  color: rgba(255, 120, 180, 0.6);
-  animation: floatUp linear infinite;
+  animation: floatUp linear forwards;
   pointer-events: none;
 }
 
@@ -74,87 +84,77 @@ button {
     opacity: 1;
   }
   to {
-    transform: translateY(-110vh);
+    transform: translateY(-120vh);
     opacity: 0;
   }
 }
 
-/* IMAGES */
+/* ---------- IMAGES ---------- */
 .memory-img {
-  width: 260px;
-  height: 260px;
-  border-radius: 25px;
+  width: 270px;
+  height: 270px;
+  border-radius: 30px;
   object-fit: cover;
-  box-shadow: 0 0 30px rgba(0,140,255,0.35);
+  box-shadow: 0 0 35px rgba(0,140,255,0.4);
   margin-bottom: 15px;
 }
 
-/* FINAL TEXT */
+/* ---------- FINAL ---------- */
 .final-text {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- LOGO -->
 <div class="logo">E 💙</div>
 
-<!-- HEARTS SCRIPT -->
-<script>
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = 6 + Math.random() * 6 + "s";
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 12000);
-}, 400);
-</script>
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <!-- Replace with your MP3 -->
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <!-- PAGE 1 -->
 <section id="p1" class="active">
-  <h1>Happy Birthday, Eddie 💙</h1>
-  <p>Calm. Loyal. Built for big moments.</p>
-  <button onclick="go(2)">Start 🎮</button>
+  <h1>Happy 21st Birthday, Eddie 💙</h1>
+  <p>Big year. Big moments. Same calm energy.</p>
+  <button onclick="startExperience()">Start 🎉</button>
 </section>
 
-<!-- PAGE 2: PHOTOS -->
+<!-- PAGE 2 -->
 <section id="p2">
   <img id="img" class="memory-img" src="img1.jpg">
   <p id="cap">This smile? Dangerous.</p>
   <button onclick="nextPic()">Next 💙</button>
 </section>
 
-<!-- PAGE 3: MAN CITY -->
+<!-- PAGE 3 -->
 <section id="p3">
-  <h2>Quick Question ⚽</h2>
+  <h2>Quick check ⚽</h2>
   <p>Press if you’re loyal 💙</p>
-  <button onclick="go(4)">I Know Ball</button>
+  <button onclick="go(4)">Always.</button>
 </section>
 
-<!-- PAGE 4: NARUTO MOMENT -->
+<!-- PAGE 4 -->
 <section id="p4">
-  <h2>Just one soft moment 🍥</h2>
-  <p>For my Minato energy.</p>
+  <h2>One soft Naruto moment 🍥</h2>
+  <p>Calm Minato energy.</p>
 
-  <div style="margin-top:20px;">
-    <iframe width="320" height="180"
-      src="https://www.youtube.com/embed/9Z3eGJpYH4I"
-      title="Naruto"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <iframe width="320" height="180"
+    src="https://www.youtube.com/embed/9Z3eGJpYH4I"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
 
   <button onclick="go(5)">Continue 💙</button>
 </section>
 
-<!-- PAGE 5: FINAL -->
+<!-- PAGE 5 -->
 <section id="p5">
   <img src="img4.jpg" class="memory-img">
   <div class="final-text">
@@ -166,12 +166,20 @@ setInterval(() => {
 <script>
 let current = 1;
 
+/* ---------- PAGE NAV ---------- */
 function go(n) {
   document.getElementById("p" + current).classList.remove("active");
   document.getElementById("p" + n).classList.add("active");
   current = n;
 }
 
+/* ---------- MUSIC START ---------- */
+function startExperience() {
+  document.getElementById("bgMusic").play();
+  go(2);
+}
+
+/* ---------- MEMORIES ---------- */
 const pics = [
   { img: "img1.jpg", cap: "This smile? Dangerous." },
   { img: "img2.jpg", cap: "My calm in every storm." },
@@ -182,20 +190,33 @@ let i = 0;
 function nextPic() {
   i++;
   if (i < pics.length) {
-    document.getElementById("img").src = pics[i].img;
-    document.getElementById("cap").innerText = pics[i].cap;
+    img.src = pics[i].img;
+    cap.innerText = pics[i].cap;
   } else {
     go(3);
   }
 }
+
+/* ---------- TAP = MORE HEARTS ---------- */
+document.addEventListener("click", (e) => {
+  for (let j = 0; j < 6; j++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = Math.random() > 0.5 ? "💖" : "💙";
+    heart.style.left = e.clientX + (Math.random()*40 - 20) + "px";
+    heart.style.top = e.clientY + "px";
+    heart.style.animationDuration = (4 + Math.random()*3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+  }
+});
 </script>
 
 </body>
 </html>
-
-
-
-
+  
+ 
   
 
   
