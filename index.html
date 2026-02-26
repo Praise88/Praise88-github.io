@@ -6,6 +6,46 @@
 <title>I Love You Filthy 💙</title>
 
 <style>
+  /* DRAKE OPENING */
+#drakeIntro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #111, #000814);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: white;
+  text-align: center;
+}
+
+  #lock {
+  display: none; /* hide at first */
+}
+  
+#drakeIntro img {
+  width: 220px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255,255,255,.4);
+  animation: spinDrake 12s linear infinite;
+}
+
+@keyframes spinDrake {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#drakeIntro button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #00aaff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
 *{
   margin:0;
   padding:0;
@@ -134,10 +174,63 @@ video{
   opacity:.7;
   font-size:.9rem;
 }
+
+  /* BALLOONS */
+.balloon {
+  position: absolute;
+  font-size: 30px;
+  animation: riseUp 8s linear infinite;
+}
+
+@keyframes riseUp {
+  0% { transform: translateY(100vh); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+  /* SLIDESHOW */
+.slideshow {
+  max-width: 400px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.slideshow img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,255,255,.3);
+  display: none;
+}
+
+.slideshow img.active {
+  display: block;
+}
+
+.slideshow-buttons {
+  margin-top: 10px;
+}
+
+.slideshow-buttons button {
+  padding: 8px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 8px;
+  background: #00aaff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
 </style>
 </head>
 
 <body>
+
+  <!-- DRAKE INTRO -->
+<div id="drakeIntro">
+  <img src="https://ih1.redbubble.net/image.5036119448.3863/flat,750x,075,f-pad,750x1000,f8f8f8.webp" alt="Drake Meme">
+  <p style="margin-top:15px; font-size:1.2rem;">“21, can you do something for me?” 🎶</p>
+  <button onclick="closeDrake()">Stop the Spin</button>
+</div>
 
 <!-- PASSWORD -->
 <div id="lock">
@@ -175,10 +268,29 @@ video{
     </video>
   </div>
 
+  <div class="slideshow">
+  <img src="YOUR-PHOTO1.jpg" class="active">
+  <img src="YOUR-PHOTO2.jpg">
+  <img src="YOUR-PHOTO3.jpg">
+</div>
+
+<div class="slideshow-buttons">
+  <button onclick="prevSlide()">◀ Prev</button>
+  <button onclick="nextSlide()">Next ▶</button>
+</div>
+
   <div class="tap-note">tap anywhere for more hearts 💕</div>
 </div>
 
 <script>
+
+  /* DRAKE INTRO */
+function closeDrake() {
+  document.getElementById("drakeIntro").style.display = "none";
+  // After closing Drake, show the password lock
+  document.getElementById("lock").style.display = "flex";
+}
+  
 /* PASSWORD */
 function unlock(){
   const val = document.getElementById("pass").value.toLowerCase();
@@ -187,6 +299,7 @@ function unlock(){
     document.getElementById("content").style.display="block";
     document.getElementById("bgMusic").play();
     startHearts();
+    startBalloons();
   }else{
     alert("wrong 😭 try again");
   }
@@ -213,6 +326,52 @@ document.addEventListener("click",e=>{
     createHeart(e.clientX,e.clientY);
   }
 });
+
+  /* BALLOONS */
+function createBalloon() {
+  const balloon = document.createElement("div");
+  balloon.className = "balloon";
+  // Random emoji colors 🎈
+  const emojis = ["🎈","🎉","🥳"];
+  balloon.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+  balloon.style.left = Math.random() * window.innerWidth + "px";
+  balloon.style.top = window.innerHeight + "px";
+  document.body.appendChild(balloon);
+  setTimeout(() => balloon.remove(), 8000);
+}
+
+function startBalloons() {
+  setInterval(() => createBalloon(), 1500);
+}
+
+  /* SLIDESHOW */
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slideshow img");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if(i === index) slide.classList.add("active");
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto-play every 5 seconds
+setInterval(nextSlide, 5000);
+
+  function closeDrake() {
+  document.getElementById("drakeIntro").style.display = "none";
+  document.getElementById("lock").style.display = "flex";
+}
 </script>
 
 </body>
