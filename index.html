@@ -3,233 +3,76 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>I Love You Filthy 💙</title>
+<title>Happy Birthday Junior💙</title>
 
 <style>
-  /* DRAKE OPENING */
-#drakeIntro {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle, #111, #000814);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  color: white;
-  text-align: center;
-}
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+body{height:100vh; background:radial-gradient(circle at top, #0a2a66, #000814); overflow:hidden; color:white;}
 
-  #lock {
-  display: none; /* hide at first */
+/* DRAKE INTRO */
+#drakeIntro {
+  position: fixed; inset: 0;
+  background: radial-gradient(circle, #111, #000814);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 1000; color: white; text-align: center;
 }
-  
 #drakeIntro img {
-  width: 220px;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(255,255,255,.4);
+  width: 220px; border-radius: 15px; box-shadow:0 0 25px rgba(255,255,255,.4);
   animation: spinDrake 12s linear infinite;
 }
-
-@keyframes spinDrake {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
+@keyframes spinDrake {from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
 #drakeIntro button {
-  margin-top: 25px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 10px;
-  background: #00aaff;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
+  margin-top:25px; padding:12px 25px; border:none; border-radius:10px;
+  background:#00aaff; color:white; font-weight:bold; cursor:pointer;
 }
 
-body{
-  height:100vh;
-  background: radial-gradient(circle at top, #0a2a66, #000814);
-  overflow:hidden;
-  color:white;
-}
-
-/* PASSWORD SCREEN */
-#lock{
-  position:fixed;
-  inset:0;
+/* PASSWORD LOCK */
+#lock {display:none; position:fixed; inset:0;
   background: radial-gradient(circle, #0b3c91, #000814);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
+  align-items:center; justify-content:center; z-index:999;
 }
-
-.lock-box{
-  background: rgba(0,0,0,0.6);
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 0 30px rgba(0,162,255,.5);
-}
-
-.lock-box h2{
-  margin-bottom:15px;
-}
-
-.lock-box input{
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  outline:none;
-  width:200px;
-  text-align:center;
-}
-
-.lock-box button{
-  margin-top:15px;
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-  background:#00aaff;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
+.lock-box {background:rgba(0,0,0,0.6); padding:30px; border-radius:20px; text-align:center;
+  box-shadow:0 0 30px rgba(0,162,255,.5);}
+.lock-box input{padding:12px; border-radius:10px; border:none; outline:none; width:200px; text-align:center;}
+.lock-box button{margin-top:15px; padding:10px 20px; border:none; border-radius:10px; background:#00aaff; color:white; font-weight:bold; cursor:pointer;}
 
 /* MAIN CONTENT */
-#content{
-  display:none;
-  height:100%;
-  text-align:center;
-  padding-top:60px;
-}
-
-/* LOGO */
-.logo{
-  font-size:2.2rem;
-  font-weight:800;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
-}
+#content{display:none; height:100%; text-align:center; padding-top:60px;}
+.logo{font-size:2.2rem; font-weight:800; animation:pulse 2s infinite, glow 3s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)} 50%{transform:scale(1.05)}}
+@keyframes glow{0%{text-shadow:0 0 5px #00aaff;} 50%{text-shadow:0 0 20px #00aaff;} 100%{text-shadow:0 0 5px #00aaff;}}
 
 /* HEARTS */
-.heart{
-  position:absolute;
-  color:#ff4d6d;
-  font-size:20px;
-  animation: floatUp 6s linear infinite;
-}
+.heart{position:absolute; color:#ff4d6d; font-size:20px; animation:floatUp 6s linear infinite;}
+@keyframes floatUp{0%{transform:translateY(100vh); opacity:0} 20%{opacity:1} 100%{transform:translateY(-10vh); opacity:0}}
 
-@keyframes floatUp{
-  0%{transform:translateY(100vh); opacity:0}
-  20%{opacity:1}
-  100%{transform:translateY(-10vh); opacity:0}
-}
+/* BALLOONS */
+.balloon{position:absolute; font-size:30px; animation:riseUp 8s linear infinite;}
+@keyframes riseUp{0%{transform:translateY(100vh); opacity:0} 20%{opacity:1} 100%{transform:translateY(-10vh); opacity:0}}
 
-/* MAN CITY BADGE */
-.badge{
-  width:120px;
-  margin:25px auto;
-  animation: spin 20s linear infinite;
-}
+/* SLIDESHOW */
+.slideshow{max-width:400px; margin:30px auto; position:relative;}
+.slideshow img{width:100%; border-radius:15px; box-shadow:0 0 20px rgba(255,255,255,.3); display:none;}
+.slideshow img.active{display:block;}
+.slideshow-buttons{margin-top:10px;}
+.slideshow-buttons button{padding:8px 15px; margin:0 5px; border:none; border-radius:8px; background:#00aaff; color:white; cursor:pointer; font-weight:bold;}
 
-@keyframes spin{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
-}
+/* COUNTDOWN */
+#countdown{margin-top:30px; font-size:1.2rem; font-weight:bold;}
 
-/* TEXT */
-.message{
-  max-width:500px;
-  margin:20px auto;
-  font-size:1.1rem;
-  line-height:1.6;
-}
-
-/* VIDEO */
-.video-box{
-  margin-top:25px;
-}
-
-video{
-  width:280px;
-  border-radius:20px;
-  box-shadow:0 0 20px rgba(255,255,255,.3);
-}
-
-/* TAP FUN */
-.tap-note{
-  margin-top:15px;
-  opacity:.7;
-  font-size:.9rem;
-}
-
-  /* BALLOONS */
-.balloon {
-  position: absolute;
-  font-size: 30px;
-  animation: riseUp 8s linear infinite;
-}
-
-@keyframes riseUp {
-  0% { transform: translateY(100vh); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: translateY(-10vh); opacity: 0; }
-}
-
-  /* SLIDESHOW */
-.slideshow {
-  max-width: 400px;
-  margin: 30px auto;
-  position: relative;
-}
-
-.slideshow img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255,255,255,.3);
-  display: none;
-}
-
-.slideshow img.active {
-  display: block;
-}
-
-.slideshow-buttons {
-  margin-top: 10px;
-}
-
-.slideshow-buttons button {
-  padding: 8px 15px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 8px;
-  background: #00aaff;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
+  body, #drakeIntro, #lock {
+  background: linear-gradient(to bottom, #87ceeb, #1e90ff); /* light to deep sky blue */
 }
 </style>
 </head>
 
 <body>
 
-  <!-- DRAKE INTRO -->
+<!-- DRAKE INTRO -->
 <div id="drakeIntro">
   <img src="https://ih1.redbubble.net/image.5036119448.3863/flat,750x,075,f-pad,750x1000,f8f8f8.webp" alt="Drake Meme">
   <p style="margin-top:15px; font-size:1.2rem;">“21, can you do something for me?” 🎶</p>
-  <button onclick="closeDrake()">Stop the Spin</button>
+  <button onclick="closeDrake()">NeXt</button>
 </div>
 
 <!-- PASSWORD -->
@@ -251,52 +94,63 @@ video{
 <div id="content">
   <div class="logo">I Love You Filthy 💙</div>
 
-  <div id="countdown" style="margin-top:30px; font-size:1.2rem; font-weight:bold;">
-  Countdown to our next anniversary: <span id="timeLeft"></span>
-</div>
-
-  <img class="badge" src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"/>
-
   <div class="message">
-    Happy 21st Birthday my handsome baby boy🥂💫  
-    Another year older, another year finer, another year of being
-    my favourate human💕.   
-    Manchester City mentality: always winning — just like us💙💙💙.
+    Happy 21st 🥂💫<br/>
+    Another year older, another year finer, another year of being absolutely in love with you.<br/>
+    <br/>
+    Manchester City mentality: always winning — just like us💙.
   </div>
 
+  <!-- YouTube Video -->
   <div class="video-box">
-  <iframe width="400" height="225" 
-    src="https://www.youtube.com/embed/7DJ3a5D1B2A" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-  </iframe>
-</div>
+    <iframe width="400" height="225"
+      src="https://www.youtube.com/embed/7DJ3a5D1B2A"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
 
+  <!-- Slideshow -->
   <div class="slideshow">
-  <img src="YOUR-PHOTO1.jpg" class="active">
-  <img src="YOUR-PHOTO2.jpg">
-  <img src="YOUR-PHOTO3.jpg">
-</div>
+    <img src="YOUR-PHOTO1.jpg" class="active">
+    <img src="YOUR-PHOTO2.jpg">
+    <img src="YOUR-PHOTO3.jpg">
+  </div>
+  <div class="slideshow-buttons">
+    <button onclick="prevSlide()">◀ Prev</button>
+    <button onclick="nextSlide()">Next ▶</button>
+  </div>
 
-<div class="slideshow-buttons">
-  <button onclick="prevSlide()">◀ Prev</button>
-  <button onclick="nextSlide()">Next ▶</button>
-</div>
+  <!-- Countdown -->
+  <div id="countdown">Countdown to our next anniversary: <span id="timeLeft"></span></div>
 
   <div class="tap-note">tap anywhere for more hearts 💕</div>
 </div>
 
 <script>
+/* CONFETTI */
+function launchConfetti() {
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement("div");
+    confetti.innerHTML = "🎉";
+    confetti.style.position = "absolute";
+    confetti.style.left = Math.random() * window.innerWidth + "px";
+    confetti.style.top = Math.random() * window.innerHeight + "px";
+    confetti.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
 
-  /* DRAKE INTRO */
+/* DRAKE INTRO */
 function closeDrake() {
   document.getElementById("drakeIntro").style.display = "none";
-  // After closing Drake, show the password lock
   document.getElementById("lock").style.display = "flex";
+  launchConfetti();
 }
-  
+
 /* PASSWORD */
 function unlock(){
   const val = document.getElementById("pass").value.toLowerCase();
@@ -306,6 +160,7 @@ function unlock(){
     document.getElementById("bgMusic").play();
     startHearts();
     startBalloons();
+    startCountdown();
   }else{
     alert("wrong 😭 try again");
   }
@@ -322,105 +177,8 @@ function createHeart(x=null,y=null){
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),6000);
 }
-
-function startHearts(){
-  setInterval(()=>createHeart(),400);
-}
-
-document.addEventListener("click",e=>{
-  for(let i=0;i<8;i++){
-    createHeart(e.clientX,e.clientY);
-  }
-});
-
-  /* BALLOONS */
-function createBalloon() {
-  const balloon = document.createElement("div");
-  balloon.className = "balloon";
-  // Random emoji colors 🎈
-  const emojis = ["🎈","🎉","🥳"];
-  balloon.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-  balloon.style.left = Math.random() * window.innerWidth + "px";
-  balloon.style.top = window.innerHeight + "px";
-  document.body.appendChild(balloon);
-  setTimeout(() => balloon.remove(), 8000);
-}
-
-function startBalloons() {
-  setInterval(() => createBalloon(), 1500);
-}
-
-  /* SLIDESHOW */
-let currentSlide = 0;
-let slides;
-
-window.onload = function() {
-  slides = document.querySelectorAll(".slideshow img");
-  showSlide(currentSlide);
-
-  // Auto-play every 5 seconds
-  setInterval(nextSlide, 5000);
-};
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-    if (i === index) slide.classList.add("active");
-  });
-}
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
-}
-
-// Auto-play every 5 seconds
-setInterval(nextSlide, 5000);
-
-  function closeDrake() {
-  document.getElementById("drakeIntro").style.display = "none";
-  document.getElementById("lock").style.display = "flex";
-}
-
-  /* COUNTDOWN */
-function startCountdown() {
-  // Example: set target date (YYYY, MM-1, DD)
-  const targetDate = new Date(2026, 8, 15); // Sept 15, 2026
-  const timer = document.getElementById("timeLeft");
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-      timer.innerHTML = "It's here! 🎉💖";
-      startEmojiParty(); // trigger emojis when countdown ends
-      clearInterval(interval);
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }
-
-  updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
-}
-</script>
-
-</body>
-</html>
-
-  
+function startHearts(){setInterval(()=>createHeart(),400);}
+document.addEventListener("click",e=>{for(let i=
   
   
 
