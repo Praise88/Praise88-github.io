@@ -251,22 +251,28 @@ video{
 <div id="content">
   <div class="logo">I Love You Filthy 💙</div>
 
+  <div id="countdown" style="margin-top:30px; font-size:1.2rem; font-weight:bold;">
+  Countdown to our next anniversary: <span id="timeLeft"></span>
+</div>
+
   <img class="badge" src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"/>
 
   <div class="message">
-    Happy 21st 🥂💫  
+    Happy 21st Birthday my handsome baby boy🥂💫  
     Another year older, another year finer, another year of being
-    absolutely obsessed with you.  
-    Champions League energy only 😌⚽  
-    Manchester City mentality: always winning — just like us.
+    my favourate human💕.   
+    Manchester City mentality: always winning — just like us💙💙💙.
   </div>
 
   <div class="video-box">
-    <!-- Replace with any Naruto clip you want -->
-    <video controls>
-      <source src="YOUR-NARUTO-CLIP.mp4" type="video/mp4">
-    </video>
-  </div>
+  <iframe width="400" height="225" 
+    src="https://www.youtube.com/embed/7DJ3a5D1B2A" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
 
   <div class="slideshow">
   <img src="YOUR-PHOTO1.jpg" class="active">
@@ -346,12 +352,20 @@ function startBalloons() {
 
   /* SLIDESHOW */
 let currentSlide = 0;
-const slides = document.querySelectorAll(".slideshow img");
+let slides;
+
+window.onload = function() {
+  slides = document.querySelectorAll(".slideshow img");
+  showSlide(currentSlide);
+
+  // Auto-play every 5 seconds
+  setInterval(nextSlide, 5000);
+};
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.remove("active");
-    if(i === index) slide.classList.add("active");
+    if (i === index) slide.classList.add("active");
   });
 }
 
@@ -371,6 +385,35 @@ setInterval(nextSlide, 5000);
   function closeDrake() {
   document.getElementById("drakeIntro").style.display = "none";
   document.getElementById("lock").style.display = "flex";
+}
+
+  /* COUNTDOWN */
+function startCountdown() {
+  // Example: set target date (YYYY, MM-1, DD)
+  const targetDate = new Date(2026, 8, 15); // Sept 15, 2026
+  const timer = document.getElementById("timeLeft");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      timer.innerHTML = "It's here! 🎉💖";
+      startEmojiParty(); // trigger emojis when countdown ends
+      clearInterval(interval);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
 }
 </script>
 
