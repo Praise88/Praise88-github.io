@@ -50,19 +50,54 @@ body{height:100vh; background:radial-gradient(circle at top, #0a2a66, #000814); 
 .balloon{position:absolute; font-size:30px; animation:riseUp 8s linear infinite;}
 @keyframes riseUp{0%{transform:translateY(100vh); opacity:0} 20%{opacity:1} 100%{transform:translateY(-10vh); opacity:0}}
 
-/* SLIDESHOW */
-.slideshow{max-width:400px; margin:30px auto; position:relative;}
-.slideshow img{width:100%; border-radius:15px; box-shadow:0 0 20px rgba(255,255,255,.3); display:none;}
-.slideshow img.active{display:block;}
-.slideshow-buttons{margin-top:10px;}
-.slideshow-buttons button{padding:8px 15px; margin:0 5px; border:none; border-radius:8px; background:#00aaff; color:white; cursor:pointer; font-weight:bold;}
-
-/* COUNTDOWN */
-#countdown{margin-top:30px; font-size:1.2rem; font-weight:bold;}
-
 body, #drakeIntro, #lock {
   background: linear-gradient(to bottom, #87ceeb, #1e90ff); /* light to deep sky blue */
 }
+
+  .balloon-letters {
+  margin-top: 40px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e90ff; /* deep sky blue */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.balloon-letters span {
+  background: #87ceeb; /* lighter blue balloon look */
+  padding: 15px 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  animation: floatBalloon 3s ease-in-out infinite;
+}
+
+/* Bounce animation */
+@keyframes floatBalloon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* Staggered delays for each letter */
+.balloon-letters span:nth-child(1) { animation-delay: 0s; }
+.balloon-letters span:nth-child(2) { animation-delay: 0.2s; }
+.balloon-letters span:nth-child(3) { animation-delay: 0.4s; }
+.balloon-letters span:nth-child(4) { animation-delay: 0.6s; }
+.balloon-letters span:nth-child(5) { animation-delay: 0.8s; }
+.balloon-letters span:nth-child(6) { animation-delay: 1s; }
+.balloon-letters span:nth-child(7) { animation-delay: 1.2s; }
+.balloon-letters span:nth-child(8) { animation-delay: 1.4s; }
+.balloon-letters span:nth-child(9) { animation-delay: 1.6s; }
+.balloon-letters span:nth-child(10){ animation-delay: 1.8s; }
+.balloon-letters span:nth-child(11){ animation-delay: 2s; }
+.balloon-letters span:nth-child(12){ animation-delay: 2.2s; }
+.balloon-letters span:nth-child(13){ animation-delay: 2.4s; }
+.balloon-letters span:nth-child(14){ animation-delay: 2.6s; }
+.balloon-letters span:nth-child(15){ animation-delay: 2.8s; }
+.balloon-letters span:nth-child(16){ animation-delay: 3s; }
+.balloon-letters span:nth-child(17){ animation-delay: 3.2s; }
 </style>
 </head>
 
@@ -116,19 +151,34 @@ body, #drakeIntro, #lock {
     </iframe>
   </div>
 
-  <!-- Slideshow Section -->
-  <div class="slideshow">
-    <img src="IMG-20251205-WA0036.jpg" class="active">
-    <img src="IMG-20250828-WA0009.jpg">
-    <img src="IMG-20251027_101046.jpg">
-  </div>
-  <div class="slideshow-buttons">
-    <button onclick="prevSlide()">◀ Prev</button>
-    <button onclick="nextSlide()">Next ▶</button>
-  </div>
+  <!-- Balloon Letters Section -->
+<div class="balloon-letters"> ... </div>
 
-  <!-- Countdown -->
-  <div id="countdown">Countdown to our next anniversary: <span id="timeLeft"></span></div>
+  <!-- Balloon Letters Section -->
+<div class="balloon-letters">
+  <span>H</span>
+  <span>A</span>
+  <span>P</span>
+  <span>P</span>
+  <span>Y</span>
+  <span>B</span>
+  <span>I</span>
+  <span>R</span>
+  <span>T</span>
+  <span>H</span>
+  <span>D</span>
+  <span>A</span>
+  <span>Y</span>
+  <span>B</span>
+  <span>A</span>
+  <span>B</span>
+  <span>Y</span>
+</div>
+  
+  <!-- Single Photo Section -->
+  <div class="photo-box" style="margin-top:30px;">
+    <img src="IMG-20251205-WA0036.jpg" alt="Special Photo" style="width:400px; border-radius:15px; box-shadow:0 0 20px rgba(255,255,255,.3);">
+  </div>
 
   <div class="tap-note">tap anywhere for more hearts 💕</div>
 </div>
@@ -181,7 +231,6 @@ function unlock(){
     document.getElementById("bgMusic").play();
     startHearts();
     startBalloons();
-    startCountdown();
   }else{
     alert("wrong 😭 try again");
   }
@@ -217,42 +266,9 @@ function createBalloon(){
   setTimeout(()=>balloon.remove(),8000);
 }
 function startBalloons(){setInterval(()=>createBalloon(),2000);}
-
-/* SLIDESHOW */
-let slides = document.querySelectorAll(".slideshow img");
-let current = 0;
-function showSlide(index){
-  slides[current].classList.remove("active");
-  current = (index + slides.length) % slides.length;
-  slides[current].classList.add("active");
-}
-function nextSlide(){showSlide(current+1);}
-function prevSlide(){showSlide(current-1);}
-
-/* COUNTDOWN */
-function startCountdown(){
-  const target = new Date("2026-09-15T00:00:00"); // example anniversary date
-  setInterval(()=>{
-    const now = new Date();
-    const diff = target - now;
-    if(diff <= 0){
-      document.getElementById("timeLeft").innerText = "It's here! 🎉";
-    } else {
-      const days = Math.floor(diff/(1000*60*60*24));
-      const hours = Math.floor((diff/(1000*60*60)) % 24);
-      const mins = Math.floor((diff/(1000*60)) % 60);
-      const secs = Math.floor((diff/1000) % 60);
-      document.getElementById("timeLeft").innerText =
-        `${days}d ${hours}h ${mins}m ${secs}s`;
-    }
-  },1000);
-}
 </script>
 </body>
 </html>
-
-
-
   
 
 
