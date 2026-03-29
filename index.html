@@ -1,277 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Happy Birthday Junior💙</title>
-
-<style>
-*{margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
-body{height:100vh; background:radial-gradient(circle at top, #0a2a66, #000814); overflow-x:hidden; color:white;}
-
-/* DRAKE INTRO */
-#drakeIntro {
-  position: fixed; inset: 0;
-  background: radial-gradient(circle, #111, #000814);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  z-index: 1000; color: white; text-align: center;
-}
-#drakeIntro img {
-  width: 220px; border-radius: 15px; box-shadow:0 0 25px rgba(255,255,255,.4);
-  animation: spinDrake 12s linear infinite;
-}
-@keyframes spinDrake {from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
-#drakeIntro button {
-  margin-top:25px; padding:12px 25px; border:none; border-radius:10px;
-  background:#00aaff; color:white; font-weight:bold; cursor:pointer;
-}
-
-/* PASSWORD LOCK */
-#lock {display:none; position:fixed; inset:0;
-  background: radial-gradient(circle, #0b3c91, #000814);
-  align-items:center; justify-content:center; z-index:999;
-}
-.lock-box {background:rgba(0,0,0,0.6); padding:30px; border-radius:20px; text-align:center;
-  box-shadow:0 0 30px rgba(0,162,255,.5);}
-.lock-box input{padding:12px; border-radius:10px; border:none; outline:none; width:200px; text-align:center;}
-.lock-box button{margin-top:15px; padding:10px 20px; border:none; border-radius:10px; background:#00aaff; color:white; font-weight:bold; cursor:pointer;}
-
-/* MAIN CONTENT */
-#content{display:none; text-align:center; padding:40px;}
-.logo{font-size:2.2rem; font-weight:800; animation:pulse 2s infinite, glow 3s ease-in-out infinite;}
-@keyframes pulse{0%,100%{transform:scale(1)} 50%{transform:scale(1.05)}}
-@keyframes glow{0%{text-shadow:0 0 5px #00aaff;} 50%{text-shadow:0 0 20px #00aaff;} 100%{text-shadow:0 0 5px #00aaff;}}
-
-/* HEARTS */
-.heart{position:absolute; color:#ff4d6d; font-size:20px; animation:floatUp 6s linear infinite;}
-@keyframes floatUp{0%{transform:translateY(100vh); opacity:0} 20%{opacity:1} 100%{transform:translateY(-10vh); opacity:0}}
-
-/* BALLOONS */
-.balloon{position:absolute; font-size:30px; animation:riseUp 8s linear infinite;}
-@keyframes riseUp{0%{transform:translateY(100vh); opacity:0} 20%{opacity:1} 100%{transform:translateY(-10vh); opacity:0}}
-
-body, #drakeIntro, #lock {
-  background: linear-gradient(to bottom, #87ceeb, #1e90ff); /* light to deep sky blue */
-}
-
-  .balloon-letters {
-  margin-top: 40px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #1e90ff; /* deep sky blue */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.balloon-letters span {
-  background: #87ceeb; /* lighter blue balloon look */
-  padding: 15px 20px;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  animation: floatBalloon 3s ease-in-out infinite;
-}
-
-/* Bounce animation */
-@keyframes floatBalloon {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-}
-
-/* Staggered delays for each letter */
-.balloon-letters span:nth-child(1) { animation-delay: 0s; }
-.balloon-letters span:nth-child(2) { animation-delay: 0.2s; }
-.balloon-letters span:nth-child(3) { animation-delay: 0.4s; }
-.balloon-letters span:nth-child(4) { animation-delay: 0.6s; }
-.balloon-letters span:nth-child(5) { animation-delay: 0.8s; }
-.balloon-letters span:nth-child(6) { animation-delay: 1s; }
-.balloon-letters span:nth-child(7) { animation-delay: 1.2s; }
-.balloon-letters span:nth-child(8) { animation-delay: 1.4s; }
-.balloon-letters span:nth-child(9) { animation-delay: 1.6s; }
-.balloon-letters span:nth-child(10){ animation-delay: 1.8s; }
-.balloon-letters span:nth-child(11){ animation-delay: 2s; }
-.balloon-letters span:nth-child(12){ animation-delay: 2.2s; }
-.balloon-letters span:nth-child(13){ animation-delay: 2.4s; }
-.balloon-letters span:nth-child(14){ animation-delay: 2.6s; }
-.balloon-letters span:nth-child(15){ animation-delay: 2.8s; }
-.balloon-letters span:nth-child(16){ animation-delay: 3s; }
-.balloon-letters span:nth-child(17){ animation-delay: 3.2s; }
-</style>
+  <meta charset="UTF-8">
+  <title>Clown Face</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+    .clown {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: #ffe0bd;
+      border-radius: 50%;
+      border: 4px solid #000;
+    }
+    .eye {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 50%;
+      top: 60px;
+    }
+    .eye::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: black;
+      border-radius: 50%;
+      top: 7px;
+      left: 7px;
+    }
+    .eye.left { left: 40px; }
+    .eye.right { right: 40px; }
+    .nose {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: red;
+      border-radius: 50%;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 2px solid #000;
+    }
+    .mouth {
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      border: 4px solid #000;
+      border-top: none;
+      border-radius: 0 0 50px 50px;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+    }
+    .hat {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 60px;
+      background: blue;
+      border-radius: 60px 60px 0 0;
+      border: 4px solid #000;
+    }
+    .hat::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      background: yellow;
+      border-radius: 50%;
+      border: 2px solid #000;
+    }
+  </style>
 </head>
-
 <body>
-
-<!-- DRAKE INTRO -->
-<div id="drakeIntro">
-  <img src="https://ih1.redbubble.net/image.5036119448.3863/flat,750x,075,f-pad,750x1000,f8f8f8.webp" alt="Drake Meme">
-  <p style="margin-top:15px; font-size:1.2rem;">“21, can you do something for me?” 🎶</p>
-  <button onclick="closeDrake()">NeXt</button>
-</div>
-
-<!-- PASSWORD -->
-<div id="lock">
-  <div class="lock-box">
-    <h2>Minato to my ___ 💕</h2>
-    <input id="pass" placeholder="type the name"/>
-    <br/>
-    <button onclick="unlock()">Unlock</button>
+  <div class="clown">
+    <div class="hat"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+    <div class="mouth"></div>
   </div>
-</div>
-
-<!-- MUSIC -->
-<audio id="bgMusic">
-  <source src="Drake_21_Savage_-_Rich_Flex_(mp3.pm).mp3" type="audio/mpeg">
-</audio>
-
-<!-- MAIN -->
-<div id="content">
-  <div class="logo">I Love You Filthy 💙</div>
-
-  <div class="message">
-    Happy 21st 🥂💫<br/>
-    Another year older, another year finer, another year of being absolutely in love with you.<br/><br/>
-    Manchester City mentality: always winning — just like us💙.
-  </div>
-
-  <!-- Manchester City Badge -->
-  <div class="badge">
-    <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" alt="Manchester City Badge" style="width:120px; margin-top:20px;">
-  </div>
-
-  <!-- YouTube Video Section -->
-  <div class="video-box" style="margin-top:30px;">
-    <iframe width="400" height="225"
-      src="https://www.youtube.com/embed/7DJ3a5D1B2A"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <!-- Balloon Letters Section -->
-<div class="balloon-letters"> ... </div>
-
-  <!-- Balloon Letters Section -->
-<div class="balloon-letters">
-  <span>H</span>
-  <span>A</span>
-  <span>P</span>
-  <span>P</span>
-  <span>Y</span>
-  <span>B</span>
-  <span>I</span>
-  <span>R</span>
-  <span>T</span>
-  <span>H</span>
-  <span>D</span>
-  <span>A</span>
-  <span>Y</span>
-  <span>B</span>
-  <span>A</span>
-  <span>B</span>
-  <span>Y</span>
-</div>
-  
-  <!-- Single Photo Section -->
-  <div class="photo-box" style="margin-top:30px;">
-    <img src="IMG-20251205-WA0036.jpg" alt="Special Photo" style="width:400px; border-radius:15px; box-shadow:0 0 20px rgba(255,255,255,.3);">
-  </div>
-
-  <div class="tap-note">tap anywhere for more hearts 💕</div>
-</div>
-
-<script>
-/* CONFETTI */
-function launchConfetti() {
-  for (let i = 0; i < 100; i++) {
-    const confetti = document.createElement("div");
-    confetti.innerHTML = "🎉";
-    confetti.style.position = "absolute";
-    confetti.style.left = Math.random() * window.innerWidth + "px";
-    confetti.style.top = Math.random() * window.innerHeight + "px";
-    confetti.style.fontSize = (10 + Math.random() * 20) + "px";
-    document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 3000);
-  }
-}
-
-const music = document.getElementById("bgMusic");
-
-// Loop points in seconds
-const loopStart = 30;  // start at 0:30
-const loopEnd = 55;    // end at 0:55
-
-music.addEventListener("play", () => {
-  if (music.currentTime < loopStart) {
-    music.currentTime = loopStart;
-  }
-});
-music.addEventListener("timeupdate", () => {
-  if (music.currentTime >= loopEnd) {
-    music.currentTime = loopStart;
-  }
-});
-
-/* DRAKE INTRO */
-function closeDrake() {
-  document.getElementById("drakeIntro").style.display = "none";
-  document.getElementById("lock").style.display = "flex";
-  launchConfetti();
-  document.getElementById("bgMusic").play();
-}
-
-/* PASSWORD */
-function unlock(){
-  const val = document.getElementById("pass").value.toLowerCase();
-  if(val === "kushina"){
-    document.getElementById("lock").style.display="none";
-    document.getElementById("content").style.display="block";
-    document.getElementById("bgMusic").play();
-    startHearts();
-    startBalloons();
-  }else{
-    alert("wrong 😭 try again");
-  }
-}
-
-/* HEARTS */
-function createHeart(x=null,y=null){
-  const heart = document.createElement("div");
-  heart.className="heart";
-  heart.innerHTML="💖";
-  heart.style.left = (x ?? Math.random()*window.innerWidth) + "px";
-  heart.style.top = (y ?? window.innerHeight) + "px";
-  heart.style.fontSize = (15 + Math.random()*20) + "px";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-}
-function startHearts(){setInterval(()=>createHeart(),400);}
-document.addEventListener("click",e=>{
-  for(let i=0; i<3; i++){
-    createHeart(e.pageX, e.pageY);
-  }
-});
-
-/* BALLOONS */
-function createBalloon(){
-  const balloon = document.createElement("div");
-  balloon.className="balloon";
-  balloon.innerHTML="🎈";
-  balloon.style.left = Math.random()*window.innerWidth + "px";
-  balloon.style.top = window.innerHeight + "px";
-  balloon.style.fontSize = (20 + Math.random()*30) + "px";
-  document.body.appendChild(balloon);
-  setTimeout(()=>balloon.remove(),8000);
-}
-function startBalloons(){setInterval(()=>createBalloon(),2000);}
-</script>
 </body>
 </html>
-  
-
 
 
 
