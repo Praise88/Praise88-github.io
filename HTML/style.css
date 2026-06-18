@@ -1,0 +1,148 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-image: url("https://i.pinimg.com/736x/9c/2e/f2/9c2ef2715be0424366606bcd410d4a77.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: rgb(85, 31, 12);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 50px 20px;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid lightgray;
+  border-radius: 20px;
+  padding: 60px 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+
+h1 {
+  font-size: 48px;
+  text-align: center;
+  color: rgb(85, 31, 12);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.names {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  color: rgb(145, 71, 46);
+  margin-bottom: 20px;
+  text-decoration: underline;
+  letter-spacing: 3px;
+}
+
+.highlight {
+  font-size: 50px;
+  font-weight: 800;
+  color: rgb(85, 31, 12);
+}
+
+.intro {
+  display: block;
+  font-size: 20px;
+  font-weight: normal;
+  text-decoration: none;
+  color: rgb(85, 31, 12);
+  margin-top: 5px;
+}
+
+h4 {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.7;
+  color: rgb(85, 31, 12);
+  margin: 30px auto 40px;
+  max-width: 850px;
+}
+
+
+h2 {
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(145, 71, 46);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h5 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: rgb(85, 31, 12);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.contact-info a:hover {
+  color: rgb(145, 71, 46);
+  text-decoration: underline;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  .names {
+    font-size: 28px;
+  }
+
+  .highlight {
+    font-size: 40px;
+  }
+
+  h4 {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .container {
+    padding: 40px 20px;
+  }
+
+}
+
+.itd {
+    text-align: center;
+  text-decoration: underline;
+  color: rgb(85, 31, 12);
+  font-size: 21px;
+  margin-bottom: 10px;
+  font-family: "Times New Roman", Times, serif;
+  }
